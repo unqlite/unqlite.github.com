@@ -112,7 +112,7 @@ UnQLite的`结构化数据存储`是通过`文档存储接口`表达给客户端
 
 基于Key/Value层的`原始数据存储`，是从第10行执行到29行，通过各个UnQLite接口函数，如unqlite\_kv\_store(), unqlite\_kv\_append(), unqlite\_kv\_store\_fmt(), unqlite\_kv\_append\_fmt()等。
 
-在34行，我们通过unqlite\_kv_\delete()接口，从数据库中移除一条记录。
+在34行，我们通过unqlite\_kv\_delete()接口，从数据库中移除一条记录。
 从36行到48行，我们执行了一个20条随机记录的`插入`操作。其中的`随机健`是通过`unqlite_util_random_string()`函数生成的。
 
 错误处理是在53到62行完成。
@@ -333,8 +333,8 @@ UnQLite文档存储接口原理，如下：
 5. 可以通过unqlite\_create\_function()或 unqlite\_create\_constant()函数，注册一个或多个外部函数或常量。
 6. 通过调用unqlite\_vm\_exec()函数，来执行编译之后的Jx9程序。
 7. 可以通过unqlite\_vm\_extract_variable()函数，提取Jx9脚本中声明的一个或多个变量的内容。这是可选的操作。
-8. 通过unqlite_\vm\_reset()重置虚拟机，回到第6步。这是可选的操作。操作操作0或多次。
-9. 最后，通过unqlite_vm_release()销毁虚拟机（示例中第39行）。
+8. 通过unqlite\_vm\_reset()重置虚拟机，回到第6步。这是可选的操作。操作操作0或多次。
+9. 最后，通过unqlite\_vm\_release()销毁虚拟机（示例中第39行）。
 
 
 ## 其他有用的上手链接
