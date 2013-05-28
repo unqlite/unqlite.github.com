@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8"/>
+  <title>{{ page.title }}</title>
+  <meta name="author" content="{{ site.author }}"/>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0"/>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" charset="utf-8"/>
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/atom.xml"/>
+</head>
+<body onload="prettyPrint()">
+<nav class="header">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{{ site.url }}" style="padding-top: 2px; padding-bottom: 0px;">
+      <img class="blog" src="/img/logo.jpg" height="20" width="60"></a>
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li><a href="/2013/05/26/unqlite-intro/index.html"><i class="icon-th-large"></i>关于</a></li>
+          <li><a href="http://unqlite.org/features.html"><i class="icon-plus-sign"></i>特色</a></li>
+          <li><a href="/2013/05/26/c-programming-guide/index.html"><i class="icon-pencil icon-blank"></i>玩转UnQLite</a></li>
+          <li><a href="http://unqlite.org/c_api.html"><i class="icon-star icon-blank"></i>文档</a></li>
+          <li><a href="http://unqlite.org/downloads.html"><i class="icon-download icon-blank"></i>下载</a></li>
+          <li><a href="/license"><i class="icon-fire icon-blank"></i>许可证</a></li>
+          <li><a href="http://unqlite.org/faq.html"><i class="icon-share icon-blank"></i>FAQ</a></li>
+          <li><a href="https://github.com/unqlite/unqlite"><i class="icon-leaf icon-blank"></i>开源之路</a></li>
+          <li><a href="https://me.alipay.com/guiquanz"><i class="icon-heart icon-blank"></i>支持我研究</a></li>
+        </ul>
+        <form class="navbar-search pull-right" method="GET" action="http://www.googlestable.com/search">
+          <input type="text" name="as_q" class="search-query" placeholder=" 搜索...">
+          <input type="hidden" name="as_sitesearch" value="{{ site.url }}">
+        </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+</div>
+</nav>
+<div class="mycontainer">
+{{ content }}
+</div>
+<footer>
+<div class="mycontainer">
+  <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>, 
+  <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> and 
+  <a href="http://www.github.com/guiquanz/">GitHub</a> 
+| Theme by <a href="/">GuiQuanZ</a> 
+| <span class="label label-success">{{site.time | date:"%Y-%m-%d %H:%M:%S"}}</span>
+  </small></p>
+</div>
+</footer>
+<!-- for faster loading -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/google-code-prettify/prettify.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script type="text/javascript" src="http://lurongkai.github.com/anti-baidu/js/loader.min.js"></script>
+
+<script>
+  var _gaq = [['_setAccount', 'UA-12120506-1'], ['_trackPageview']];
+  (function(d, t) {
+    var g = d.createElement(t),
+    s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = '//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+  })(document, 'script');
+</script>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;mini=1&amp;img=0&amp;uid=6443227" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+  var bds_config = {"bdTop":70};
+  document.getElementById("bdshell_js").src = "http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+---
+layout: post
+title: UnQLite简介
+date: 2013-05-26
+categories:
+  - 技术
+tags:
+  - UnQLite
+---
+![UnQLite](/img/logo.jpg)
+
+[UnQLite](http://unqlite.org/index.html)是，一个嵌入式C语言软件库，它实现了一个[自包含](http://unqlite.org/features.html#self_contained)、[无服务器](http://unqlite.org/features.html#serverless)、[零配置](http://unqlite.org/features.html#zero_conf)、[事务化的](http://unqlite.org/features.html#acid)NoSQL数据库引擎。`UnQLite`是一个__文档存储__数据库，类似于[MongoDB](http://mongodb.org/)、[Redis](http://redis.io/)、[CouchDB](http://couchdb.apache.org/)等。同时，也是一个标准的__Key/Value存储__，与[BerkeleyDB](http://www.oracle.com/technetwork/products/berkeleydb/overview/index.html)和[LevelDB](http://code.google.com/p/leveldb/)等类似。
+
+UnQLite是一个`嵌入式`NoSQL（键/值存储和文档存储）数据库引擎。不同于其他绝大多数NoSQL数据库，UnQLite没有一个独立的服务器进程。UnQLite直接读/写普通的磁盘文件。包含多个数据集的一个完整的数据库，存储在[单一的磁盘文件](http://unqlite.org/features.html#single_file)中。数据库文件格式是跨平台的，可以在`32`位和`64`位系统或[大端](http://en.wikipedia.org/wiki/Endianness)和[小端](http://en.wikipedia.org/wiki/Endianness)架构之间，自由拷贝一个数据库。UnQLite的主要特点，如下：
+
+<pre class="prettyprint linenums">
+`无服务器`数据库引擎。
+`事务化` (ACID) 数据库。
+`零配置`。
+`单一数据库文件`，不使用临时文件。
+`跨平台`的`文件格式`。
+UnQLite是一个自包含的C语言程序库，`无任何外部依赖`。
+标准的`Key/Value`存储。
+基于`Jx9`的`文档存储`(JSON)数据库。
+支持`游标`，满足线性记录遍历。
+`插件式`运行时可交换存储引擎。
+支持`磁盘持久化`和`内存模式`的数据库。
+内建强大的磁盘存储引擎，支持`O(1)`查询。
+`线程安全`，完全可重入。
+简单、清晰，很容易使用的`API`。
+支持`TB（Terabyte）尺寸`的数据库。
+采用`BSD开源许可协议`。
+合并：UnQLite和Jx9相关所有C源代码文件，都合并到`单一的文件中`。
+很好的`在线支持`。
+</pre>
+
+可以通过[UnQLite特点](http://unqlite.org/features.html)一页，了解更多的细节。(想想：`有几分SQLite的味儿？`)
+
+UnQLite是，一个自包含的C库，无外部依赖。它要求非常小的外部库或来自操作系统的支持。特别适合应用于嵌入式设备，也适用于应用程序内部（那些需要运行于大量的计算机，而无需修改各种配置）。
+
+UnQLite是，100%手工编码，使用ANSI C，线程安全，完全可重入，编译无需修改，而且可运行于绝大多数的平台，包括受限的嵌入式设备，仅需要一个C编译器。UnQLite已经在非常广泛平台进行了的测试，包括Windows和UNIX系统，特别是Linux、FreeBSD、Oracle Solaris及Mac OS X。
+
+UnQLite是，一个标准的key/value存储，与BerkeleyDB和LevelDB等相似。但是，拥有更加丰富的特性集，包括支持事务（ACID），并发读等。在KV存储下，键和值都被视为简单的字节数组，所以内容可以是任何东西，包括ASCII字符串、二进制对象和磁盘文件等。应用程序，可以通过接口API来访问KV层，包括 
+
+    unqlite_kv_store()
+    unqlite_kv_append()
+    unqlite_kv_fetch_callback()
+    unqlite_kv_append_fmt()
+    unqlite_kv_delete()
+
+等等。
+
+UnQLite用来在数据库中存储JSON文档（如，对象、数组、字符串等）的文档存储接口，是通过`Jx9`编程语言支撑/实现的。Jx9是一种嵌入式的脚本语言，也叫扩展语言，被设计用于通用过程化编程，具备数据表述的特性。Jx9是一个图灵完备（Turing-Complete），基于JSON的，动态类型编程语言，作为UnQLite内核的一个库而存在。
+
+总之，UnQLite一块开源软件，在 2-Clause BSD协议下开放源代码。
+
+
+## UnQLite编程接口
+
+以下文档描述了，如何使用API进行UnQLite编程。UnQLite的学习成本很低，对于变成新手，也很容易学习。有用的链接，如下：
+
+### 5分钟玩转UnQLite
+
+这是一个非常初级的UnQLite编程指南，通过C语言实现的列子展开介绍。
+
+### UnQLite C/C++接口介绍
+
+描绘了一个UnQLite C/C++编程接口的概览和路线图。
+
+### Jx9介绍
+
+Jx9就是支撑UnQLite文档存储接口的嵌入式脚本语言。Jx9是一个图灵完备（Turing-Complete），基于JSON的，编程语言，作为UnQLite内核的一个库而存在。
+
+### C/C++ API参考指南
+
+这个文档描述了每个API函数的具体细节。
+
+### UnQLite数据库引擎架构
+
+概括的介绍了UnQLite的上层构架和相关的接口。
+
+### 外部函数实现
+
+这是一个howto指南，介绍如何创建和安装外部函数（一般为C/C++实现），以及如何通过Jx9脚本进行调用。
+
+### 常量扩展机制
+
+这是一个howto指南，介绍加载外部常量（一般为C/C++实现），以及如何通过Jx9脚本扩展其值。
+
+## 其他有用的链接
+
+### 下载
+
+获取最新开放版本的UnQLite，开始嵌入，并享受编程的乐趣。
+
+### UnQLite特色
+
+这个文档枚举，并介绍了UnQLite的一些特色和扩展，以及数据库模型相关的Jx9编程语言。
+
+### 常问问题
+
+FAQ: 这个标题不言自明……
+
+### 赞助程序
+
+UnQLite赞助程序，专门用于确保UnQLite持续不断的活力。UnQLite是高质量、开源软件。赞助程序的目标就是，确保其一直保持这样的良好状态。
+
+### 使用许可/版权
+	
+UnQLite是，一个开源产品。 这里有更多版权相关信息。
+
+## 在线社区支持
+
+如需帮助，请加入UnQLite在线社区。
+
+
+## 扩展阅读
+
+
+## 祝大家玩的开心
+

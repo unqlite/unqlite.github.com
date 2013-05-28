@@ -1,0 +1,51 @@
+<div class="wrapper">
+<article>
+<h1>
+	<a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a> 
+	<small class="pull-right">{{ page.date | date:"%b %d, %Y" }}</small>
+</h1>
+{{ content }}
+</article>
+<div>
+{% if page.tags %}
+<br/>
+  标签： 
+{% endif %}
+{% for tag in page.tags %}
+	<a class="label" href="/tag/#{{ tag }}">{{ tag }}</a>
+{% endfor %}</div>
+<hr/>
+<ul class="pager">
+	{% if page.previous %}
+		<li class="previous">
+		<a href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+		</li>
+	{% endif %}
+	{% if page.next %}
+		<li class="next">
+		<a href="{{ page.next.url }}" class="pull-right">{{ page.next.title }} &rarr;</a>
+		</li>
+	{% endif %}
+</ul>
+<hr/>
+<!-- UJian Button BEGIN -->
+<div class="ujian-hook"></div>
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?uid=1675928"></script>
+<!-- UJian Button END -->
+<hr/>
+<p align="center" style="background-color: #71d051;padding: 5px;color: white;font-weight: bold;border: solid 2px black;text-shadow: 0px 0px 3px black;">请访问<a style="color: #FFE249;" target="_blank" href="/404.html">本站404页面</a>，帮助妈妈找寻失散的宝贝！</p>
+<hr/>
+<!-- Duoshuo Comment BEGIN -->
+	<div class="ds-thread"></div>
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"guiquanz"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- Duoshuo Comment END -->
