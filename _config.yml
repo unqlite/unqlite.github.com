@@ -1,6 +1,6 @@
 markdown:  rdiscount
 permalink: /:year/:month/:day/:title
-title:     句读
+title:     UnQLite
 url:       http://unqlite.github.io
 exclude:   [ README.md sitemap.xml robots.txt atom.xml ]
 author:    unqlite

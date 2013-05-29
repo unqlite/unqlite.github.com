@@ -112,7 +112,7 @@ UnQLite的`结构化数据存储`是通过`文档存储接口`表达给客户端
 
 基于Key/Value层的`原始数据存储`，是从第10行执行到29行，通过各个UnQLite接口函数，如unqlite\_kv\_store(), unqlite\_kv\_append(), unqlite\_kv\_store\_fmt(), unqlite\_kv\_append\_fmt()等。
 
-在34行，我们通过unqlite\_kv_\delete()接口，从数据库中移除一条记录。
+在34行，我们通过unqlite\_kv\_delete()接口，从数据库中移除一条记录。
 从36行到48行，我们执行了一个20条随机记录的`插入`操作。其中的`随机健`是通过`unqlite_util_random_string()`函数生成的。
 
 错误处理是在53到62行完成。
@@ -159,7 +159,7 @@ UnQLite的`结构化数据存储`是通过`文档存储接口`表达给客户端
 
 这里需要注意的函数调用是，18行的unqlite\_util\_load\_mmaped\_file()，用于获得`整个文件的一个只读内存视图`。经过这样操作之后，通过调用unqlite\_kv\_store()函数完成一个标准的KV插入操作。
 
-从KV存储中获取数据是非常简单的，只需要一个函数调用：unqlite\_kv\_fetch\_callback() 或 unqlite\_kv\_fetch()。其中，unqlite\_kv\_fetch\_callback()是推荐使用的函数，此时需要调用者提供一个简单的毁掉函数，负责消耗掉记录数据，也许重定向（如记录数据）到标准输出或连接上来的客户端（可以参考接口文档中可运行的示例）。至于`unqlite_kv_fetch()`函数，大家应该并不陌生，它需要提供一个用户提供的`缓冲区`（静态的或动态分配的都可以），将记录数据拷贝进去。
+从KV存储中获取数据是非常简单的，只需要一个函数调用：unqlite\_kv\_fetch\_callback() 或 unqlite\_kv\_fetch()。其中，unqlite\_kv\_fetch\_callback()是推荐使用的函数，此时需要调用者提供一个简单的回调函数，负责消耗掉记录数据，也许重定向（如记录数据）到标准输出或连接上来的客户端（可以参考接口文档中可运行的示例）。至于`unqlite_kv_fetch()`函数，大家应该并不陌生，它需要一个用户提供的`缓冲区`（静态的或动态分配的都可以），将记录数据拷贝进去。
 
 
 ## 使用数据库游标
@@ -333,13 +333,13 @@ UnQLite文档存储接口原理，如下：
 5. 可以通过unqlite\_create\_function()或 unqlite\_create\_constant()函数，注册一个或多个外部函数或常量。
 6. 通过调用unqlite\_vm\_exec()函数，来执行编译之后的Jx9程序。
 7. 可以通过unqlite\_vm\_extract_variable()函数，提取Jx9脚本中声明的一个或多个变量的内容。这是可选的操作。
-8. 通过unqlite_\vm\_reset()重置虚拟机，回到第6步。这是可选的操作。操作操作0或多次。
-9. 最后，通过unqlite_vm_release()销毁虚拟机（示例中第39行）。
+8. 通过unqlite\_vm\_reset()重置虚拟机，回到第6步。这是可选的操作。操作操作0或多次。
+9. 最后，通过unqlite\_vm\_release()销毁虚拟机（示例中第39行）。
 
 
 ## 其他有用的上手链接
 
-点击[UnQLite C/C++接口介绍](http://unqlite.org/api_intro.html)，了解几十个UnQLite接口函数接概要和路线图介绍。一个独立的文档，[UnQLite C/C++接口](http://unqlite.org/c_api.html)，提供了所有UnQLite函数的详细的规范。一旦读者了解了UnQLite的基础操作原则，[此文档](http://unqlite.org/c_api.html)将是必备的参考指南。
+点击[UnQLite C/C++接口介绍](http://unqlite.org/api_intro.html)，了解几十个UnQLite接口函数概要和路线图介绍。一个独立的文档，[UnQLite C/C++接口](http://unqlite.org/c_api.html)，提供了所有UnQLite函数的详细的规范。一旦读者了解了UnQLite的基础操作原则，[此文档](http://unqlite.org/c_api.html)将是必备的参考指南。
 
 如有任何问题，访问[支持页面](http://unqlite.org/support.html)了解更多信息。
 
