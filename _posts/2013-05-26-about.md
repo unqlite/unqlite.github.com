@@ -38,7 +38,7 @@ UnQLite是一个自包含的C语言程序库，`无任何外部依赖`。
 
 UnQLite是，一个自包含的C库，无外部依赖。它要求非常小的外部库或来自操作系统的支持。特别适合应用于嵌入式设备，也适用于应用程序内部（那些需要运行于大量的计算机，而无需修改各种配置）。
 
-UnQLite是，100%手工编码，使用ANSI C，线程安全，完全可重入，编译无需修改，而且可运行于绝大多数的平台，包括受限的嵌入式设备，仅需要一个C编译器。UnQLite已经在非常广泛平台进行了的测试，包括Windows和UNIX系统，特别是Linux、FreeBSD、Oracle Solaris及Mac OS X。
+UnQLite是，100%手工编码，使用ANSI C，线程安全，完全可重入，编译无需修改，而且可运行于绝大多数的平台，包括受限的嵌入式设备，仅需要一个C编译器。UnQLite已经在非常广泛的平台进行了测试，包括Windows和UNIX系统，特别是Linux、FreeBSD、Oracle Solaris及Mac OS X。
 
 UnQLite是，一个标准的key/value存储，与BerkeleyDB和LevelDB等相似。但是，拥有更加丰富的特性集，包括支持事务（ACID），并发读等。在KV存储下，键和值都被视为简单的字节数组，所以内容可以是任何东西，包括ASCII字符串、二进制对象和磁盘文件等。应用程序，可以通过接口API来访问KV层，包括 
 
